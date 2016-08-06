@@ -1,22 +1,21 @@
 package Carlo;
 
-public class My {
-	
-	int QSIZE;
+public class QUEUE {
+	private int QSIZE;
 	private int[]queue;
-	private int nItems;
+	private int nItems = 0;
 
-	public My(int size){
+	public QUEUE(int size){
 		this.QSIZE= size;
 		this.queue = new int[this.QSIZE];
 	}
-	public My() {
-		// TODO Auto-generated constructor stub
-	}
+
 	public void showQueue(){
 			for (int i=0; i< this.QSIZE;i++){
-			System.out.println("Queue["+i+"] = " + this);
+			System.out.println("QUEUE["+i+"] = " + this.queue[i]);
+			
 		}
+			System.out.println();
 	}
 
 	public boolean isFull() {
@@ -29,14 +28,14 @@ public class My {
 			
 	public boolean isEmpty() {
 			if (this.nItems == 0){
-				System.out.println ("The Queue is Empty");
+				System.out.println("The Queue is Empty");
 				return true;
 			}	else{
 				return false;
 			}}
 
 	public boolean enqueue (int num) {
-			System.out.println("Trying to enqueue" + num + "...");
+			System.out.println("Trying to enqueue " + num + "...");
 			if (!this.isFull()){
 				this.queue[nItems] = num;
 				System.out.println("\t" + "Added " + num);
@@ -45,31 +44,60 @@ public class My {
 			}	else{
 				return false;
 			}}
-
-	public int dequeue(int num) {
-			System.out.println("Trying to dequeue" + num + "...");
-			{ if (!this.isEmpty())
-					this.queue[nItems-1]=num;
-					System.out.println ("\t" + "Deleted " + num);
-					this.nItems--;
-					return num;
-				}}
+	// i modify dequeue base on the pop the stock
+	public void dequeue() {
+		 if (isEmpty()) {
+		    	System.out.println("REMOVE FAILED, Storage is empty.");
+		      System.out.println();
+		    } else {
+		      nItems = 0;
+		      System.out.println("... trying to dequeue [" + (nItems) + "] ...");
+		      System.out.println(queue[nItems] + " was successfully removed.");
+		      System.out.println();
+		      queue[nItems++] = 0;
+		      nItems--;
+		      for(int i=0;i<=nItems;i++){
+		    	  queue[nItems+1] =  queue[nItems];
+		      }
+		      nItems++;
+		    }
+		 //reArrange is not working yet  
+		 }
 
 	public int peekFront() {
+			System.out.println("The front number is : "+queue[0]);
 			return this.queue[0];
 	}
 	public int peekRear() {
-			return this.queue[this.nItems-=1];
+		System.out.println("The rear number is : "+queue[this.nItems-1]);
+			return this.queue[this.nItems-1];
 	}
 
 	public static void main(String[]args){
 		
-		My Demo = new My();
-		  Demo.enqueue(1);
-		  Demo.dequeue(1);
-		  Demo.enqueue(2);
-		  Demo.enqueue (5);
+		QUEUE Demo = new QUEUE(10);
+		  Demo.showQueue();
+		  Demo.enqueue(23);
+		  Demo.showQueue();
+		  Demo.dequeue();
+		  Demo.dequeue();
+		  Demo.enqueue (21);
+		  Demo.showQueue();
+		  Demo.enqueue (12);
+		  Demo.enqueue (3);
+		  Demo.enqueue (1);
+		  Demo.enqueue (2);
+		  Demo.enqueue (9);
+		  Demo.enqueue (10);
+		  Demo.showQueue();
+		  Demo.peekFront();
+		  Demo.peekRear();
+		  Demo.showQueue();
+		  Demo.dequeue();
+		  Demo.dequeue();
+		  Demo.showQueue();
 		  
+		  // im having trouble with dequeue
 	}
 	
 }
