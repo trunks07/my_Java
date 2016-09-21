@@ -61,7 +61,7 @@ public class LinearSearch {
 		size = input.nextInt();
 		
 		
-		LinearSearch demo = new RandLin (size);
+		LinearSearch demo = new BinarySearch (size);
 		demo.getArray();
 		demo.show();
 		demo.search();
