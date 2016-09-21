@@ -1,13 +1,13 @@
 import java.util.Scanner;
 import java.util.Random;
-public class ArrayRandom {
+public class SumAveMax {
 		private int capacity;
 		private int []array;
 		private int sum = 0;
 		private int max = 0;
 		private double average = 0;
 		
-		public ArrayRandom(int size){
+		public SumAveMax(int size){
 			capacity = size;
 			array = new int [capacity];
 		}
@@ -57,7 +57,7 @@ public class ArrayRandom {
 			System.out.print("Please enter the number of elements :");
 			arraySize =input.nextInt();
 			
-			ArrayRandom demo = new ArrayRandom(arraySize);
+			SumAveMax demo = new ArrayRandom(arraySize);
 			
 			demo.array();
 			demo.show();
