@@ -1,14 +1,14 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class RandLin {
+public class LinearSearch {
 
 	private int [] array;
 	private int capacity;
 	private int toSearch;
 	private int range;
 	
-	private RandLin (int size){
+	private LinearSearch (int size){
 		capacity = size;
 		array = new int [capacity];
 
@@ -61,7 +61,7 @@ public class RandLin {
 		size = input.nextInt();
 		
 		
-		RandLin demo = new RandLin (size);
+		LinearSearch demo = new RandLin (size);
 		demo.getArray();
 		demo.show();
 		demo.search();
