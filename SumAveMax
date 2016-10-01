@@ -57,7 +57,7 @@ public class SumAveMax {
 			System.out.print("Please enter the number of elements :");
 			arraySize =input.nextInt();
 			
-			SumAveMax demo = new ArrayRandom(arraySize);
+			SumAveMax demo = new SumAveMax(arraySize);
 			
 			demo.array();
 			demo.show();
