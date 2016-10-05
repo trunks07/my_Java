@@ -1,4 +1,3 @@
-package sitWork;
 import java.util.Scanner;
 public class Stack {
 	
